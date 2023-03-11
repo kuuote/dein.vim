@@ -559,7 +559,7 @@ function! dein#util#_execute_hook(plugin, hook) abort
     let g:dein#plugin = a:plugin
 
     if a:hook->type() == v:t_string
-      let cmds = a:hook->split('\n')
+      let cmds = a:hook->split('\n', v:true)
       if cmds[0] =~# '^\s*vim9script' && exists(':vim9')
         vim9 call execute(cmds[1 : ], '')
       else
